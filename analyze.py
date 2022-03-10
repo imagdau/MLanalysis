@@ -2,6 +2,8 @@ from ase.io import read, write
 from quippy import descriptors
 import numpy as np
 
+#data is a link to /data/ibm26/MLdata on womble
+
 traj = read('data/LiquidElectrolyte/traj_2.1.extxyz', ':2')
 print(np.unique(traj[0].numbers))
 
