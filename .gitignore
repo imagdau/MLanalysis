@@ -160,3 +160,6 @@ traj*/
 # SOAP file folder that could be very big for git
 soap*/
 dimred*/
+
+# leave ProDot out for now
+proDOT/
