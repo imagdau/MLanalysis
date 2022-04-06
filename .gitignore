@@ -152,9 +152,11 @@ cython_debug/
 #.idea/
 
 # traj file since they might be really big, and other simulation related files
-*.xyz
-*.extxyz
-*.eng
+traj*/
+#*.xyz
+#*.extxyz
+#*.eng
 
 # SOAP file folder that could be very big for git
-soap_*/
+soap*/
+dimred*/

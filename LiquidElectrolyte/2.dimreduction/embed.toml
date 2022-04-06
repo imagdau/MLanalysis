@@ -1,0 +1,11 @@
+[system]
+
+dirpath = '../1.dscr_analysis/'
+name = 'test_soap_rcut6_n_Z1_Z15_Nframe10every2.npy'
+
+[dimred_method]
+
+method = 'lpca'
+
+[dimred_method.method_dict]
+n_components = 9
