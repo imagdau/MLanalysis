@@ -87,14 +87,14 @@ def main(config):
                                every=skip)
     
     output_name = config.descriptor['type']+\
-                  '_rcut'+str(int(config.descriptor['cutoff']))+\
+                  '_rcut'+str(config.descriptor['cutoff'])+\
                   '_n_Z'+\
                   str(config.descriptor['n_Z'])+\
                   '_Z'+config.descriptor['Z'][1:-1]+\
                   '_Nframe'+str(n_frame)+'every'+str(skip)
     
     if config.system['saveFile']:
-        np.save(config.system['outheader']+'_'+output_name, ds_vec)
+        np.save(config.system['outheader']+output_name, ds_vec)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,13 @@
+lpca rcut 6 PAMM parameters
+
+fs	0.2
+merger	0.005
+bts	73
+
+grid:
+500	-> 8 clusters
+1000	-> 4 clusters (4 macro clusters)
+2000	-> 6 clusters
+
+500 obtained a vertical separation, maybe interesting.
+Varying fs at 500 grid do not change anything

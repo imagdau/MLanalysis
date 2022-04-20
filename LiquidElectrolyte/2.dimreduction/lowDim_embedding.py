@@ -53,22 +53,30 @@ def shuffle(X, Y=None, n=None):
 
     
 # --- fit a dimreduction model
-def get_dimred_model(method, method_dict):
+def get_embedding(data, 
+                  method, 
+                  method_dict,
+                  fit=True):
     
-    # avaliable methods
-    DIMRED_METHODS = dict(
+    # avaliable general methods
+    EMBED_METHODS = dict(
     lpca = PCA,
     kpca = KernelPCA,
     umap = UMAP
     )
-    if method in DIMRED_METHODS.keys():
-        dimred_model = DIMRED_METHODS[method](**method_dict)
+    
+    if method in EMBED_METHODS.keys():
+        embed_model = EMBED_METHODS[method](**method_dict)
     else:
-        dimred_model = method(**method_dict)
+        embed_model = method(**method_dict)
     
-    print(f"Method selected: {dimred_model}")
+    print(f"Data shape: {np.shape(X)}")
+    print(f"Method selected: {embed_model}")
     
-    return dimred_model
+    if fit:
+        return embed_model.fit(data)
+    else:
+        return embed_model
 
 # ------------------------------------------------------------
 # Main
@@ -86,12 +94,12 @@ def main(config):
         X = np.concatenate(X)
     
     # --- set up the model
-    dimredModel = get_dimred_model(**config.dimred_method)
+    embedModel = get_embedding(**config.dimred_method)
     
     # --- fit and transform
-    dimredModel.fit(X)
+    embedModel.fit(X)
     # - transfomr
-    Xemb = dimredModel.transform(X)
+    Xemb = embedModel.transform(X)
     
     # --- save data
     if isinstance(config.dimred_method['method'], str):
